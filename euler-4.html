@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Задача Эйлера 4</title>
+        <style>
+            body
+            {
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            a {
+        			color: black;
+        			text-decoration: none;
+        		}
+        		a:hover {
+        			text-decoration: underline;
+        		}
+        </style>
+    </head>
+    <body>
+        <p>
+            Задача:<br>
+            Число-палиндром с обеих сторон (справа налево и слева направо) читается одинаково.
+            Самое большое число-палиндром, полученное умножением двух двузначных чисел – 9009 = 91 × 99.<br>
+            Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.
+        </p>
+        <p> Для просмотра результата откройте консоль разработчика </p>
+        <a href="index.html">Назад</a>
+        <script>
+            let a
+            let b
+            let r
+            let r1 = 0
+            for(a = 999; a > 99; a--)         <!--создаём цикл для перебора первого трёхзначного числа-->
+            {
+                for(b = 999; b > 99; b--)     <!--создаём цикл для перебора второго трёхзначного числа-->
+                {
+                    r = a * b                 <!--умножаем первое число на второе-->
+                    let one = r % 10                    <!--получаем последнюю цифру-->
+                    let a1 = Math.floor(r / 10)         <!--удаляем последнюю цифру из числа-->
+                    let two = a1 % 10
+                    let a2 = Math.floor(a1 / 10)
+                    let three = a2 % 10
+                    let a3 = Math.floor(a2 / 10)
+                    let four = a3 % 10
+                    let a4 = Math.floor(a3 / 10)
+                    let five = a4 % 10
+                    let a5 = Math.floor(a4 / 10)
+                    let six = a5 % 10
+                    if((one == six) && (two == five) && (three == four) && (r1 < r))     <!-- условие в котором первое число равно шестому, второе равно пятому, третье равно четвёртому-->
+                    {
+                        r1 = r                       <!--если условие выполняется, то сохраняем это число в результат-->
+                    }
+                }
+            }
+            console.log(r1)
+    </script>
+    </body>
+</html>
